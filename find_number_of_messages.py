@@ -10,4 +10,12 @@ def find_number_of_messages(data: dict)->int:
         int: Total number of messages.
     
     """
-    return
+    lst = []
+    for message in data["messages"]:
+            if "text" in message:
+                lst.append(message["text"])
+    return len(lst)
+
+# Load the data and find all user IDs
+data = read_data('data/result.json')
+print(find_number_of_messages(data))

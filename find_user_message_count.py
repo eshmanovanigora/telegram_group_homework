@@ -11,4 +11,8 @@ def find_user_message_count(data: dict, users_id: str)->dict:
     Returns:
         dict: Number of messages of the users
     """
-    return
+    lst = find_all_users_id(data)
+    return lst.count(users_id)
+
+data = read_data('data/result.json')
+print(find_user_message_count(data, -999814828))

@@ -1,13 +1,16 @@
 import json
-def read_data(file_path: str)->dict:
+from typing import Dict, Optional
+
+def read_data(file_path: str) -> Optional[Dict]:
     """
-    This function will read the json file and return the data as a dictionary.
+    This function reads a JSON file and returns the data as a dictionary.
     
     Parameters:
         file_path (str): Path of the file to be read
-    Returns:
-        dict: Dictionary containing the data of the json file.
     
+    Returns:
+        Optional[Dict]: Dictionary containing the data of the JSON file, or None if an error occurs.
     """
-    #open file
-    return
+    with open(file_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    return data
